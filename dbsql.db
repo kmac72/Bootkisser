@@ -1,0 +1,5 @@
+CREATE TABLE Pirates(id_player INTEGER PRIMARY KEY, p_name TEXT, p_rol INTEGER, p_money INTEGER, id_ship INTEGER);
+CREATE TABLE Ships(id_ship INTEGER PRIMARY KEY, s_name TEXT, s_value INTEGER, s_money INTEGER, s_capacity INTEGER);
+
+INSERT INTO Pirates VALUES ('1', 'Juan_el_pirata', 'cabin_boy', '100', '1');
+INSERT INTO Ships VALUES ('1', 'The_black_pearl', '1000', '100', '1000');

@@ -1,0 +1,18 @@
+Kyle
+1 , test , 1030#
+Karen
+1 , test , 1200#
+Bob
+1 , test , 1000#
+Bill
+1 , test , 1000#
+newPirate
+1 , no ship , 100#
+Billy
+1 , no ship , 100#
+newPirate2
+1 , no ship , 100#
+KarenRobot
+1 , no ship , 100#
+KarenP
+1 , no ship , 110#
