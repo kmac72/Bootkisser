@@ -1,0 +1,50 @@
+#include "SFHelper.cpp"
+#include <vector>
+#include <SFML/Graphics.hpp>
+#include <iostream>   //for debugging purposes
+
+using namespace std;
+
+class MainMenu {
+    
+    sf::RenderWindow* window;
+    
+    int width, height;
+
+    vector<sf::Text> texts;
+   
+    vector<sf::Font> fonts;
+ 
+    //vector<sf::IntRect> buttons;
+    
+    //vector<sf::RectangleShape> rects;
+
+    map<string, sf::IntRect> clickables;
+    map<string, RectangleShape> buttons;
+    map<string, sf::Texture> btnTexts;
+   
+    //Pair of maps whose string keys are corresponding characters
+    //Amime holds the movement images and sprites holds the objects 
+    map<string, sf::Sprite> sprites;
+    map<string, vector<sf::Texture> > animeTexts;
+    
+    //Pair of vectors which manage image sprites (background, etc.)
+    vector<sf::Texture> textures;
+    vector<sf::Sprite> images;
+
+    string animeSprite;
+
+public:
+    
+    MainMenu();
+    
+    void initComponents();
+    
+    void display();
+    
+    void run();
+    
+    void close();
+   
+    void addSprite(string n); 
+};
