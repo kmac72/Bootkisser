@@ -15,19 +15,22 @@ class MainMenu {
    
     vector<sf::Font> fonts;
  
-    //Maps which manage buttons (string keys correspond to filenames)
-    map<string, sf::RectangleShape> buttons;
+    //vector<sf::IntRect> buttons;
+    
+    //vector<sf::RectangleShape> rects;
+
+    map<string, sf::IntRect> clickables;
+    map<string, RectangleShape> buttons;
     map<string, sf::Texture> btnTexts;
    
-    //Maps which manage animated sprites (string keys correspond to filenames)
+    //Pair of maps whose string keys are corresponding characters
+    //Amime holds the movement images and sprites holds the objects 
     map<string, sf::Sprite> sprites;
     map<string, vector<sf::Texture> > animeTexts;
     
-    //Maps which manage image sprites (background, objects, etc.)
-    map<string, sf::Sprites> images;
-    map<string, sf::Texture> imageTexts;
-    //vector<sf::Texture> textures;
-    //vector<sf::Sprite> images;
+    //Pair of vectors which manage image sprites (background, etc.)
+    vector<sf::Texture> textures;
+    vector<sf::Sprite> images;
 
     string animeSprite;
 

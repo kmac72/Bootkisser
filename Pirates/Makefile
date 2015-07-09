@@ -1,9 +1,7 @@
 all:
 
-	#g++ -c graphics_test.cpp
-	#g++ graphics_test.o SFHelper.cpp -o run -lsfml-graphics -lsfml-window -lsfml-system
-	
-	g++ -c main.cpp MainMenu.cpp SFHelper.cpp
+	clear
+	g++ -c main.cpp MainWindow.cpp Scene.cpp SceneBuilder.cpp
 	g++ main.o -lsfml-graphics -lsfml-window -lsfml-system -o run
 	
 clean:

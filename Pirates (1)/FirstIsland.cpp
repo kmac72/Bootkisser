@@ -1,8 +1,9 @@
-#include "MainMenu.h"
+#include "FirstIsland.h"
 
-//construct window and adjust settings
-MainMenu::MainMenu() {
+//consFirstIslandtruct window and adjust settings
+FirstIsland::FirstIsland() {
     
+    //MODIFY MAIN WINDOW PROPERTIES HERE
     width = 800;
     height = 600;
    
@@ -14,66 +15,28 @@ MainMenu::MainMenu() {
 }
 
 //initializes and stores graphical components of window
-void MainMenu::initComponents() {
-  
-    //save all textures used in window 
-    sf::Texture newPirateBtn, background;
-    newPirateBtn.loadFromFile("images/exit_btn.png");
-    textures.push_back(newPirateBtn);
-    background.loadFromFile("images/main_menu_bck.jpg");
-    textures.push_back(background);
+void FirstIsland::initComponents() {
 
-    SFHelper::addSprite("naruto", animeTexts, sprites);
-    animeSprite = "naruto";
-
-    SFHelper::addSprite("astro", animeTexts, sprites);
-    animeSprite = "astro";
-
-    //create background image
-    sf::Sprite back;
-    back.setTexture(textures[1]);
-    images.push_back(back); 
- 
-    //add title to screen with loaded font 
-    sf::Font titleFont;
-    if(!titleFont.loadFromFile("fonts/FFF_Tusj.ttf"))
-	cerr << "Error loading font from file.\n";
-    fonts.push_back(titleFont);
-    sf::Text title("PIRATES!", fonts[0], 50);
-    //sf::Text title;
-    //title.setFont(fonts[0]);
-    //title.setString("PIRATES!");
-    //title.setCharacterSize(50);
-    title.setColor(sf::Color::Green);
-    title.setPosition(SFHelper::center(title, 800, 600));
-    texts.push_back(title); 
+    //BUILD WINDOW USING SFHELPER CALLS HERE
     
-    SFHelper::addButton("exit", 200, 80, buttons, btnTexts);
-    buttons["exit"].setPosition(sf::Vector2f(0, 500));
-    buttons["exit"].setPosition(SFHelper::centerW(buttons["exit"], 800, 600));
-
-    SFHelper::addButton("load", 200, 80, buttons, btnTexts); 
-    buttons["load"].setPosition(sf::Vector2f(0, 400));
-    buttons["load"].setPosition(SFHelper::centerW(buttons["load"], 800, 600));
 }
 
 //called from run() draws graphics
-void MainMenu::display() {
+void FirstIsland::display() {
     
     window->clear();
-    window->draw(images[0]);
-    window->draw(texts[0]);
-    window->draw(sprites["naruto"]);
-    window->draw(sprites["astro"]);
-    window->draw(buttons["load"]);
-    window->draw(buttons["exit"]);
-    //window->draw(rects[0]);
+    //DRAW ITEMS BUILT FROM INITCOMPONENTS HERE
+    // window->draw(images[""]);
+    // window->draw(texts[""]);
+    // window->draw(sprites[""]);
+    // window->draw(sprites[""]);
+    // window->draw(buttons[""]);
     window->display();
 }
 
 //function which loops and controls open window
 //should be the same for all windows and not be modified
-void MainMenu::run() {
+void FirstIsland::run() {
     
     int step = 0;
     bool leg = false;
@@ -181,18 +144,38 @@ void MainMenu::run() {
 		cout << "Mouse clicked ";
                 sf::Vector2i position = sf::Mouse::getPosition(*window);
                 cout << "at " << position.x << "," << position.y << endl;
-                if(buttons["exit"].getGlobalBounds().contains(position.x, position.y)) {
-                    window->close();
-                }
 
-                // ADD MORE BUTTONS HERE BY COPYING IF STATEMENT ABOVE
+
+                for (std::map<string, sf::RectangleShape>::iterator it = buttons.begin(); it != buttons.end(); ++it) {
+
+                    //CREATE BUTTON FUNCTIONALITIES HERE
+                    
+                    // if(it->first == "" && it->second.getGlobalBounds().contains(position.x, position.y)) {
+                    //     window->close();
+                    // }
+
+                    // if(it->first == "" && it->second.getGlobalBounds().contains(position.x, position.y)) {
+                    //     window->close();
+                    // }
+
+                    // if(it->first == "" && it->second.getGlobalBounds().contains(position.x, position.y)) {
+                    //     window->close();
+                    // }
+
+                    // ADD MORE BUTTONS HERE BY COPYING IF STATEMENT ABOVE
+                }
             }
         }
         display();
     }
 }
 
-void MainMenu::close() {
+void FirstIsland::close() {
     
     window->close();
+}
+
+void FirstIsland::move(sf::Vector2i position) {
+
+    window->setPosition(position);
 }
